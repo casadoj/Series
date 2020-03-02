@@ -71,6 +71,7 @@ def analisis_calidad(serie, times_res):
 #         n_max_años_consecutivos=np.max(count_dups)
         año_fin=np.max(serie.dropna().index.year.values)
         if res!=1:
+            por_huecos=(1-len(data.dropna())/24)*100
             data_2=data_0.resample('D').sum()
             porc_horas_dias=data_2.values.T/24
             n_dias_completos=len(porc_horas_dias[porc_horas_dias==1])
