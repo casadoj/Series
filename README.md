@@ -1,7 +1,7 @@
 # Series
 Contiene el código generado para extraer, corregir y generar series a partir de diversas bases de datos hidrometeorológicos:
 * [AEMET](https://github.com/casadoj/Series/tree/master/ipynb/AEMET) para los datos de la Agencia Estatal de Meteorología.
-* [Cambio-Climatico](https://github.com/casadoj/Series/tree/master/ipynb/Cambio-Climatico) contiene las funciones y ejemplos para la descarga de datos de GCMs (Global Circulation Models) de dos servidores de la NASA: _datashare_ o _THREDDS_.
+* [Cambio-Climatico](https://github.com/casadoj/Series/tree/master/ipynb/Cambio-Climatico) contiene las funciones y ejemplos para la descarga de datos de GCMs (Global Circulation Models) de dos servidores de la NASA: _datashare_ o _THREDDS_. Además se incluyen las funciones para extaer los datos CORDEX desde G para la malla EUR-11. 
 * [CHC_SAIH](https://github.com/casadoj/Series/tree/master/ipynb/CHC_SAIH) para los datos del Sistema Automático de Información Hidrológica de la Confederación Hidrográfica del Cantábrico.
 * [COPERNICUS](https://github.com/casadoj/Series/tree/master/ipynb/COPERNICUS). Funciones y ejemplo para la descarga de datos de Copernicus.
 * [ROEA](https://github.com/casadoj/Series/tree/master/ipynb/ROEA) para la Red Oficial de Estaciones de Aforo.
