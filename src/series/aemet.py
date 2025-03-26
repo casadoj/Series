@@ -2,8 +2,22 @@ import pandas as pd
 import geopandas as gpd
 import requests
 import logging
-from typing import Optional, Union, List
+from typing import Optional, Union, List, Literal
 from shapely.geometry import box
+
+
+def dms2dd(
+        degrees: int,
+        minutes: int, 
+        seconds:int, 
+        direction: Literal['N', 'S', 'E', 'W']
+        ) -> float:
+    """Convierte un valor de latitud o longitud desagregado en grados, minutos y segundos en su valor decimal.
+    """
+    dd = float(degrees) + float(minutes) / 60 + float(seconds) / 3600
+    if direction in ['W', 'S']:
+        dd *= -1
+    return dd
 
 
 def aemet_estaciones(
