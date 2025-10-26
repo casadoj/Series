@@ -2,7 +2,7 @@ import pandas as pd
 import geopandas as gpd
 import requests
 import logging
-from typing import Optional, Union, List, Literal
+from typing import Optional, Union, List, Literal, Dict
 from shapely.geometry import box
 
 
@@ -25,6 +25,7 @@ def aemet_estaciones(
         id: Optional[Union[str, List[str]]] = None,
         provincia: Optional[Union[str, List[str]]] = None,
         extension: Optional[List[float]] = None,
+        proxies: Optional[Dict] = None
 ) -> gpd.GeoDataFrame:
     """Extrae las estaciones disponibles en la API de AEMET y las devuelve en un GeoDataFrame
 
@@ -45,13 +46,22 @@ def aemet_estaciones(
     URL = "https://opendata.aemet.es/opendata/api/valores/climatologicos/inventarioestaciones/todasestaciones"
 
     # petición a la API de todas las estaciones disponibles
-    response = requests.get(URL, params={"api_key": api_key}, verify=False)
+    response = requests.get(
+        URL, 
+        params={"api_key": api_key}, 
+        verify=False,
+        proxies=proxies
+    )
 
     if response.ok:
         # URL de descarga de los datos
         data_url = response.json()['datos']
         response_data = requests.get(
-            data_url, params={"api_key": api_key}, verify=False)
+            data_url, 
+            params={"api_key": api_key}, 
+            verify=False,
+            proxies=proxies
+        )
 
         if response_data.ok:
             # recoger los datos en un DataFrame
